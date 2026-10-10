@@ -20,6 +20,10 @@ public class ComunicacaoOutDTO implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Date dataHoraEnvio;
     private String nomeDestinatario;
+    private String nomeTarefa;
+    private String dataEvento;
+    private String descricao;
+    private String emailUsuario;
     private String emailDestinatario;
     private String telefoneDestinatario;
     private String mensagem;

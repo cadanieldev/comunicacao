@@ -1,0 +1,16 @@
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\api\dto\ComunicacaoInDTO.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\exception\EmailException.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\exception\GlobalHandlerException.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\api\EmailController.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\business\service\ComunicacaoService.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\business\service\EmailService.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\api\ComunicacaoController.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\enums\ModoEnvioEnum.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\api\mapper\ComunicacaoMapper.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\ComunicacaoApiApplication.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\repositories\EmailClient.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\repositories\ComunicacaoRepository.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\entities\ComunicacaoEntity.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\exception\ResourceNotFoundException.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\api\dto\ComunicacaoOutDTO.java
+C:\Users\Daniel\Documents\Projetos-Spring\comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\enums\StatusEnvioEnum.java
