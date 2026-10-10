@@ -5,6 +5,7 @@ import com.luizalebs.comunicacao_api.api.dto.ComunicacaoOutDTO;
 import com.luizalebs.comunicacao_api.api.mapper.ComunicacaoMapper;
 import com.luizalebs.comunicacao_api.infraestructure.entities.ComunicacaoEntity;
 import com.luizalebs.comunicacao_api.infraestructure.enums.StatusEnvioEnum;
+import com.luizalebs.comunicacao_api.infraestructure.exception.ResourceNotFoundException;
 import com.luizalebs.comunicacao_api.infraestructure.repositories.ComunicacaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,31 +20,31 @@ public class ComunicacaoService {
     private final ComunicacaoMapper comunicacaoMapper;
 
     public ComunicacaoInDTO agendarComunicacao(ComunicacaoInDTO dto) {
-        if (Objects.isNull(dto)) {
-            throw new RuntimeException();
+        try {
+            dto.setStatusEnvio(StatusEnvioEnum.PENDENTE);
+            ComunicacaoEntity entity = comunicacaoMapper.paraEntity(dto);
+            repository.save(entity);
+            return comunicacaoMapper.paraDTO(entity);
+        }catch (ResourceNotFoundException e){
+            throw new ResourceNotFoundException("Dados inválidos.");
         }
-        dto.setStatusEnvio(StatusEnvioEnum.PENDENTE);
-        ComunicacaoEntity entity = comunicacaoMapper.paraEntity(dto);
-        repository.save(entity);
-        return comunicacaoMapper.paraDTO(entity);
     }
 
     public ComunicacaoInDTO buscarStatusComunicacao(String emailDestinatario) {
-        ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
-        if (Objects.isNull(entity)) {
-            throw new RuntimeException();
+        try {
+            ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
+            return comunicacaoMapper.paraDTO(entity);
+        } catch (ResourceNotFoundException e) {
+            throw new ResourceNotFoundException("Email não encontrado para busca de status.");
         }
-        return comunicacaoMapper.paraDTO(entity);
     }
 
     public ComunicacaoInDTO alterarStatusComunicacao(String emailDestinatario) {
         ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
-        if (Objects.isNull(entity)) {
-            throw new RuntimeException();
-        }
         entity.setStatusEnvio(StatusEnvioEnum.CANCELADO);
         repository.save(entity);
         return (comunicacaoMapper.paraDTO(entity));
+
     }
 
 }
