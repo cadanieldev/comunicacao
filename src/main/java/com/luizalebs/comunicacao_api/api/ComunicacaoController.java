@@ -25,7 +25,7 @@ public class ComunicacaoController {
     @ApiResponse(responseCode = "200", description = "Agendamento salvo com sucesso")
     @ApiResponse(responseCode = "400" , description = "Agendamento já existente")
     @ApiResponse(responseCode = "500" , description = "Erro de servidor")
-    public ResponseEntity<ComunicacaoOutDTO> agendar(@RequestBody ComunicacaoInDTO dto)  {
+    public ResponseEntity<ComunicacaoInDTO> agendar(@RequestBody ComunicacaoInDTO dto)  {
         return ResponseEntity.ok(service.agendarComunicacao(dto));
     }
 
@@ -34,7 +34,7 @@ public class ComunicacaoController {
     @ApiResponse(responseCode = "200", description = "Agendamento encontrado")
     @ApiResponse(responseCode = "400" , description = "Agendamento não encontrado")
     @ApiResponse(responseCode = "500" , description = "Erro de servidor")
-    public ResponseEntity<ComunicacaoOutDTO> buscarStatus(@RequestParam String emailDestinatario) {
+    public ResponseEntity<ComunicacaoInDTO> buscarStatus(@RequestParam String emailDestinatario) {
         return ResponseEntity.ok(service.buscarStatusComunicacao(emailDestinatario));
     }
 
@@ -43,7 +43,7 @@ public class ComunicacaoController {
     @ApiResponse(responseCode = "200", description = "Status alterados com sucesso")
     @ApiResponse(responseCode = "400" , description = "Status alterado já existente")
     @ApiResponse(responseCode = "500" , description = "Erro de servidor")
-    public ResponseEntity<ComunicacaoOutDTO> cancelarStatus(@RequestParam String emailDestinatario) {
+    public ResponseEntity<ComunicacaoInDTO> cancelarStatus(@RequestParam String emailDestinatario) {
         return ResponseEntity.ok(service.alterarStatusComunicacao(emailDestinatario));
     }
 }
