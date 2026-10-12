@@ -1,6 +1,7 @@
 package com.luizalebs.comunicacao_api.api.mapper;
 
 import com.luizalebs.comunicacao_api.api.dto.ComunicacaoInDTO;
+import com.luizalebs.comunicacao_api.api.dto.ComunicacaoOutDTO;
 import com.luizalebs.comunicacao_api.infraestructure.entities.ComunicacaoEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-10-10T14:32:40-0300",
+    date = "2026-10-10T19:21:08-0300",
     comments = "version: 1.6.3, compiler: javac, environment: Java 17.0.20 (Azul Systems, Inc.)"
 )
 @Component
@@ -32,6 +33,25 @@ public class ComunicacaoMapperImpl implements ComunicacaoMapper {
         comunicacaoEntity.statusEnvio( dto.getStatusEnvio() );
 
         return comunicacaoEntity.build();
+    }
+
+    @Override
+    public ComunicacaoOutDTO paraOutDTO(ComunicacaoEntity entity) {
+        if ( entity == null ) {
+            return null;
+        }
+
+        ComunicacaoOutDTO.ComunicacaoOutDTOBuilder comunicacaoOutDTO = ComunicacaoOutDTO.builder();
+
+        comunicacaoOutDTO.dataHoraEnvio( entity.getDataHoraEnvio() );
+        comunicacaoOutDTO.nomeDestinatario( entity.getNomeDestinatario() );
+        comunicacaoOutDTO.emailDestinatario( entity.getEmailDestinatario() );
+        comunicacaoOutDTO.telefoneDestinatario( entity.getTelefoneDestinatario() );
+        comunicacaoOutDTO.mensagem( entity.getMensagem() );
+        comunicacaoOutDTO.modoDeEnvio( entity.getModoDeEnvio() );
+        comunicacaoOutDTO.statusEnvio( entity.getStatusEnvio() );
+
+        return comunicacaoOutDTO.build();
     }
 
     @Override

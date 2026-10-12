@@ -19,31 +19,31 @@ public class ComunicacaoService {
     private final ComunicacaoRepository repository;
     private final ComunicacaoMapper comunicacaoMapper;
 
-    public ComunicacaoInDTO agendarComunicacao(ComunicacaoInDTO dto) {
+    public ComunicacaoOutDTO agendarComunicacao(ComunicacaoInDTO dto) {
         try {
             dto.setStatusEnvio(StatusEnvioEnum.PENDENTE);
             ComunicacaoEntity entity = comunicacaoMapper.paraEntity(dto);
             repository.save(entity);
-            return comunicacaoMapper.paraDTO(entity);
+            return comunicacaoMapper.paraOutDTO(entity);
         }catch (ResourceNotFoundException e){
             throw new ResourceNotFoundException("Dados inválidos.");
         }
     }
 
-    public ComunicacaoInDTO buscarStatusComunicacao(String emailDestinatario) {
+    public ComunicacaoOutDTO buscarStatusComunicacao(String emailDestinatario) {
         try {
             ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
-            return comunicacaoMapper.paraDTO(entity);
+            return comunicacaoMapper.paraOutDTO(entity);
         } catch (ResourceNotFoundException e) {
             throw new ResourceNotFoundException("Email não encontrado para busca de status.");
         }
     }
 
-    public ComunicacaoInDTO alterarStatusComunicacao(String emailDestinatario) {
+    public ComunicacaoOutDTO alterarStatusComunicacao(String emailDestinatario) {
         ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
         entity.setStatusEnvio(StatusEnvioEnum.CANCELADO);
         repository.save(entity);
-        return (comunicacaoMapper.paraDTO(entity));
+        return (comunicacaoMapper.paraOutDTO(entity));
 
     }
 
