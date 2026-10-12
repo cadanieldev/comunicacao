@@ -35,13 +35,13 @@ public class EmailService {
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mensagem, true, StandardCharsets.UTF_8.name());
 
             mimeMessageHelper.setFrom(new InternetAddress(remetente, nomeRemetente));
-            mimeMessageHelper.setTo(InternetAddress.parse(dto.getEmailUsuario()));
-            mimeMessageHelper.setSubject("Notificação de Tarefa"); // assunto
+            mimeMessageHelper.setTo(InternetAddress.parse(dto.getEmailDestinatario()));
+            mimeMessageHelper.setSubject("Comunicação de Tarefa"); // assunto
 
             Context context = new Context();
-            context.setVariable("nomeTarefa", dto.getNomeTarefa());
-            context.setVariable("dataEvento", dto.getDataEvento());
-            context.setVariable("descricao", dto.getDescricao());
+            context.setVariable("nomeDestinatario", dto.getNomeDestinatario());
+            context.setVariable("dataHoraEnvio", dto.getDataHoraEnvio());
+            context.setVariable("mensagem", dto.getMensagem());
             String template = templateEngine.process("notificacao", context);
             mimeMessageHelper.setText(template, true);
             javaMailSender.send(mensagem);

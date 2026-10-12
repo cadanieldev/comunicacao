@@ -1,5 +1,6 @@
 com\luizalebs\comunicacao_api\infraestructure\exception\EmailException.class
 com\luizalebs\comunicacao_api\business\service\EmailService.class
+com\luizalebs\comunicacao_api\api\mapper\ComunicacaoMapperImpl.class
 com\luizalebs\comunicacao_api\api\EmailController.class
 com\luizalebs\comunicacao_api\infraestructure\repositories\EmailClient.class
 com\luizalebs\comunicacao_api\infraestructure\repositories\ComunicacaoRepository.class
